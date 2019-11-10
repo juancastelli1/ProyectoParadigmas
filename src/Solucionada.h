@@ -7,6 +7,7 @@
 
 #ifndef SOLUCIONADA_H_
 #define SOLUCIONADA_H_
+#include "Estado.h"
 #include "Pregunta.h"
 #include <iostream>
 using namespace std;

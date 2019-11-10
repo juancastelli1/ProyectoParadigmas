@@ -7,6 +7,7 @@
 
 #ifndef INACTIVA_H_
 #define INACTIVA_H_
+#include "Estado.h"
 #include "Pregunta.h"
 #include <iostream>
 using namespace std;
