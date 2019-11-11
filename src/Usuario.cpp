@@ -37,3 +37,22 @@ void Usuario::crearRespuesta(Pregunta pregunta, string titulo, string descripcio
 void Usuario::agregarNotificacion(Notificacion notificacion){
 	notificacion.insert(notificacion.end(), notificacion);
 }
+
+string Usuario::getNombre(){
+	return this->nombre;
+}
+string Usuario::getApellido(){
+	return this->apellido;
+}
+string Usuario::getPaisOrigen(){
+	return this->pais_origen;
+}
+string Usuario::getEmail(){
+	return this->email;
+}
+string Usuario::getPassword(){
+	return this->password;
+}
+string Usuario::getUrlImagen(){
+	return this->url_imagen;
+}

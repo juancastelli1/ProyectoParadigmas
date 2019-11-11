@@ -34,6 +34,12 @@ public:
 	void verNotificacion();
 	void crearRespuesta(Pregunta pregunta, string titulo,string descripcion, string url_imagen, Usuario *usuario);
 	void agregarNotificacion(Notificacion notificacion);
+	string getNombre();
+	string getApellido();
+	string getPaisOrigen();
+	string getEmail();
+	string getPassword();
+	string getUrlImagen();
 };
 
 #endif /* USUARIO_H_ */
