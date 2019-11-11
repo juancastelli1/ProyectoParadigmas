@@ -6,7 +6,7 @@
  */
 
 #include "Inactiva.h"
-Activa * Inactiva::Instancia = NULL;
+Inactiva * Inactiva::Instancia = NULL;
 
 Inactiva::Inactiva(){}
 Inactiva * Inactiva::getInstancia(){
@@ -19,10 +19,10 @@ Inactiva * Inactiva::getInstancia(){
 string Inactiva::getTipoEstado(){
 	return "Inactiva";
 }
-bool Activa::emiteNotificacion(){
+bool Inactiva::emiteNotificacion(){
 	return true;
 }
-bool Activa::admiteRespuesta(){
+bool Inactiva::admiteRespuesta(){
 	return true;
 }
 Inactiva::~Inactiva(){

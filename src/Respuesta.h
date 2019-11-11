@@ -7,7 +7,12 @@
 
 #ifndef RESPUESTA_H_
 #define RESPUESTA_H_
+#include "Pregunta.h"
+#include "Fecha.h"
+#include "Usuario.h"
+#include <string>
 using namespace std;
+
 
 class Respuesta {
 private:

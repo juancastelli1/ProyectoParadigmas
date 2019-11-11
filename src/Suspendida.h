@@ -7,6 +7,7 @@
 
 #ifndef SUSPENDIDA_H_
 #define SUSPENDIDA_H_
+#include "Estado.h"
 #include "Pregunta.h"
 #include <iostream>
 using namespace std;

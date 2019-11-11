@@ -7,6 +7,7 @@
 
 #ifndef ACTIVA_H_
 #define ACTIVA_H_
+#include "Estado.h"
 #include "Pregunta.h"
 #include <iostream>
 using namespace std;
