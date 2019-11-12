@@ -10,7 +10,7 @@
 Suspendida * Suspendida::Instancia = NULL;
 
 Suspendida::Suspendida(){}
-Suspendida * Suspendida::getInstancia(){
+static Suspendida * Suspendida::getInstancia(){
 	 if (Instancia == NULL)
 	    {
 	        Instancia = new Suspendida();
@@ -25,6 +25,18 @@ bool Suspendida::emiteNotificacion(){
 }
 bool Suspendida::admiteRespuesta(){
 	return true;
+}
+void Suspendida::suspenderPregunta(Pregunta * preg){
+
+}
+void Suspendida::marcarConSolucion(Pregunta * preg){
+
+}
+void Suspendida::recibirRespuesta(Pregunta * preg){
+
+}
+void Suspendida::chequearEstadoSegunTiempoTranscurridoDesdeUltimaRespuesta(Pregunta * preg){
+
 }
 Suspendida::~Suspendida(){
 	delete Instancia;

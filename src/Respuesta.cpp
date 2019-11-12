@@ -31,7 +31,9 @@ Respuesta::~Respuesta() {
 int Respuesta::getLikes(){
 	return likes;
 }
-
+Fecha Respuesta::getFecha(){
+	return fecha;
+}
 Usuario* Respuesta::getUserPreg(){
 	return pregunta->getUserPregunta();
 }

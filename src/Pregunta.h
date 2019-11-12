@@ -9,6 +9,7 @@
 #define PREGUNTA_H_
 #include <string>
 #include <vector>
+#include "time.h"
 #include "Fecha.h"
 #include "Estado.h"
 #include "Respuesta.h"
@@ -21,9 +22,10 @@ class Pregunta {
 	string url_imagen;
 	Fecha fecha;
 	vector<string> tags;
-	Usuario user_pregunta;
+	Usuario * user_pregunta;
 	vector<Respuesta*> respuestas;
 	Estado* estado;
+	Respuesta * solucion;
 public:
 	Pregunta();
 	~Pregunta();

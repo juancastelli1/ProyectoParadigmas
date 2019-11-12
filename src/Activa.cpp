@@ -16,14 +16,30 @@ Activa * Activa::getInstancia(){
 	    }
 	    return Instancia;
 }
-string Activa::getTipoEstado(){
-	return "Activa";
-}
 bool Activa::emiteNotificacion(){
 	return true;
 }
 bool Activa::admiteRespuesta(){
 	return true;
+}
+string Activa::getTipoEstado(){
+	return "Activa";
+}
+void Activa::suspenderPregunta(Pregunta * preg){
+	preg->estado = Suspendida::getInstancia();
+}
+void Activa::marcarConSolucion(Pregunta * preg){
+
+}
+void Activa::recibirRespuesta(Pregunta * preg){
+	if (admiteRespuesta()){
+		preg->
+	}
+}
+void Activa::chequearEstadoSegunTiempoTranscurridoDesdeUltimaRespuesta(Pregunta * preg){
+	if(preg->getMesesDesdeUltimaRespuesta()>=6){
+		preg->estado = Inactiva::getInstancia();
+	}
 }
 Activa::~Activa(){
 	delete Instancia;
