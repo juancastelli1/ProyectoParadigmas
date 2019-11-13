@@ -6,6 +6,9 @@
  */
 
 #include "Usuario.h"
+#include "Pregunta.h"
+#include "Respuesta.h"
+#include "Notificacion.h"
 
 Usuario::Usuario(string nombre, string apellido, string pais_origen, string  email, string password, string url_imagen) {
 	this->nombre = nombre;
@@ -20,22 +23,21 @@ Usuario::~Usuario() {
 	// TODO Auto-generated destructor stub
 }
 void Usuario::verNotificacion(){
-	for(unsigned int i = 0; i != notificacion.end(); ++i){
-		notificacion[i].mostrarNotificacion();
+	for(Notificacion* notif : this->notificaciones) {
+		notif->mostrarNotificacion();
 	}
 
 }
-void Usuario::crearRespuesta(Pregunta pregunta, string titulo, string descripcion, string url_imagen, Usuario *usuario){
+void Usuario::crearRespuesta(Pregunta* pregunta, string titulo, string descripcion, string url_imagen, Usuario *usuario){
 	if(pregunta->admiteRespuesta()){
-		//Respuesta *respuesta = new Respuesta();
-		Respuesta R1(titulo, descripcion, usuario->url_imagen, *usuario);
-		R1.crearNotificacion();
-		respuesta.insert(respuesta.end(), R1);
-		pregunta.recibirRespuesta(R1);
+		Respuesta* R1 = new Respuesta(pregunta, titulo, descripcion, usuario, url_imagen);
+		R1->crearNotificacion();
+		respuestas.push_back(R1);
+		pregunta->recibirRespuesta(R1);
 	}
 }
-void Usuario::agregarNotificacion(Notificacion notificacion){
-	notificacion.insert(notificacion.end(), notificacion);
+void Usuario::agregarNotificacion(Notificacion* notificacion){
+	notificaciones.push_back(notificacion);
 }
 
 string Usuario::getNombre(){

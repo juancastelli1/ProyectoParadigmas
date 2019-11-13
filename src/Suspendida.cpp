@@ -10,7 +10,7 @@
 Suspendida * Suspendida::Instancia = NULL;
 
 Suspendida::Suspendida(){}
-static Suspendida * Suspendida::getInstancia(){
+Suspendida * Suspendida::getInstancia(){
 	 if (Instancia == NULL)
 	    {
 	        Instancia = new Suspendida();

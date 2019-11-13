@@ -6,8 +6,10 @@
  */
 
 #include "Pregunta.h"
+#include "Respuesta.h"
+#include "Estado.h"
 
-Pregunta::Pregunta() {
+Pregunta::Pregunta(string titulo, string descripcion, string url_imagen, Usuario* user_preg) {
 	// TODO Auto-generated constructor stub
 
 }
@@ -35,7 +37,7 @@ string Pregunta::getTipoEstado() const{
 int Pregunta::getMesesDesdeUltimaRespuesta() const{
 	int meses;
 	Fecha f = respuestas.back()->getFecha();
-	while(f.mes != Fecha::mesActual() & f.anio != Fecha::anioActual()){
+	while(f.getMes() != Fecha::mesActual() & f.getAnio() != Fecha::anioActual()){
 		f.incrementarFecha(f.DiasDelMes());
 		meses = 1;
 	}
@@ -51,9 +53,6 @@ void Pregunta::chequearEstadoSegunTiempo(){
 	if (getTipoEstado() == "Activa"){
 		estado->chequearEstadoSegunTiempoTranscurridoDesdeUltimaRespuesta(this);
 	}
-}
-void Pregunta::suspenderPregunta(){
-	estado->suspenderPregunta(this);
 }
 void Pregunta::setEstado(Estado* est){}
 Pregunta::~Pregunta() {

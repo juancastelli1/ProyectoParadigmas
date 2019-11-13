@@ -24,16 +24,16 @@ private:
 	string email;
 	string password;
 	string url_imagen;
-	vector<Pregunta *> pregunta;
-	vector<Respuesta *> respuesta;
-	vector<Notificacion> notificacion;
+	vector<Pregunta *> preguntas;
+	vector<Respuesta *> respuestas;
+	vector<Notificacion *> notificaciones;
 
 public:
 	Usuario(string nombre, string apellido, string pais_origen, string  email, string password, string url_imagen);
 	virtual ~Usuario();
 	void verNotificacion();
-	void crearRespuesta(Pregunta pregunta, string titulo,string descripcion, string url_imagen, Usuario *usuario);
-	void agregarNotificacion(Notificacion notificacion);
+	void crearRespuesta(Pregunta* pregunta, string titulo,string descripcion, string url_imagen, Usuario *usuario);
+	void agregarNotificacion(Notificacion* notificacion);
 	string getNombre();
 	string getApellido();
 	string getPaisOrigen();

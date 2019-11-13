@@ -6,6 +6,10 @@
  */
 
 #include "Activa.h"
+#include "Inactiva.h"
+#include "Suspendida.h"
+#include "Solucionada.h"
+
 Activa * Activa::Instancia = NULL;
 
 Activa::Activa(){}
@@ -26,19 +30,19 @@ string Activa::getTipoEstado(){
 	return "Activa";
 }
 void Activa::suspenderPregunta(Pregunta * preg){
-	preg->estado = Suspendida::getInstancia();
+	preg->setEstado(Suspendida::getInstancia());
 }
 void Activa::marcarConSolucion(Pregunta * preg){
 
 }
 void Activa::recibirRespuesta(Pregunta * preg){
 	if (admiteRespuesta()){
-		preg->
+		//preg->
 	}
 }
 void Activa::chequearEstadoSegunTiempoTranscurridoDesdeUltimaRespuesta(Pregunta * preg){
 	if(preg->getMesesDesdeUltimaRespuesta()>=6){
-		preg->estado = Inactiva::getInstancia();
+		preg->setEstado(Inactiva::getInstancia());
 	}
 }
 Activa::~Activa(){

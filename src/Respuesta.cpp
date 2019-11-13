@@ -6,13 +6,17 @@
  */
 
 #include "Respuesta.h"
+#include "Pregunta.h"
+#include "Notificacion.h"
+#include "Usuario.h"
 
 Respuesta::Respuesta(
 		Pregunta *pregunta,
 		string titulo,
 		string descripcion,
-		string url_imagen = "no img",
-		Usuario *userRespuesta)
+		Usuario *userRespuesta,
+		string url_imagen
+		)
 {
 	this->pregunta = pregunta;
 	this->titulo = titulo;
@@ -46,10 +50,10 @@ void Respuesta::crearNotificacion(){
 
 	if (pregunta->emiteNotificacion() ) {
 
-		Notificacion notificacion = new Notificacion(this);
+		Notificacion* notificacion = new Notificacion(this);
 
 		Usuario *usuario_pregunta = pregunta->getUserPregunta();
-		usuario_pregunta->AgregarNotificacion(notificacion);
+		usuario_pregunta->agregarNotificacion(notificacion);
 
 	}
 }

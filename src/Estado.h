@@ -20,7 +20,7 @@ public:
 	virtual bool emiteNotificacion() = 0;
 	virtual bool admiteRespuesta() = 0;
 	virtual string getTipoEstado() = 0;
-	virtual ~Estado() = 0;
+	virtual ~Estado();
 };
 
 #endif /* ESTADO_H_ */

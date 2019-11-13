@@ -7,10 +7,10 @@
 
 #ifndef RESPUESTA_H_
 #define RESPUESTA_H_
-class Pregunta;
-class Fecha;
-class Usuario;
 #include <string>
+#include "Fecha.h"
+class Pregunta;
+class Usuario;
 using namespace std;
 
 
@@ -25,7 +25,13 @@ private:
 	Usuario *userRespuesta;
 
 public:
-	Respuesta();
+	Respuesta(
+			Pregunta *pregunta,
+			string titulo,
+			string descripcion,
+			Usuario *userRespuesta,
+			string url_imagen = "no img"
+	);
 	virtual ~Respuesta();
 	int getLikes();
 	void crearNotificacion();
