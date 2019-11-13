@@ -28,3 +28,17 @@ bool Inactiva::admiteRespuesta(){
 Inactiva::~Inactiva(){
 	delete Instancia;
 }
+
+
+void Inactiva::suspenderPregunta(Pregunta * preg) {
+
+}
+void Inactiva::chequearEstadoSegunTiempoTranscurridoDesdeUltimaRespuesta(Pregunta * preg) {
+
+}
+void Inactiva::marcarConSolucion(Pregunta * preg) {
+
+}
+void Inactiva::recibirRespuesta(Pregunta * preg) {
+
+}

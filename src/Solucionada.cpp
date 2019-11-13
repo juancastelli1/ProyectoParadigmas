@@ -29,3 +29,17 @@ bool Solucionada::admiteRespuesta(){
 Solucionada::~Solucionada(){
 	delete Instancia;
 }
+
+
+void Solucionada::suspenderPregunta(Pregunta * preg) {
+	// Mantener estado
+}
+void Solucionada::chequearEstadoSegunTiempoTranscurridoDesdeUltimaRespuesta(Pregunta * preg) {
+	// Mantener estado
+}
+void Solucionada::marcarConSolucion(Pregunta * preg) {
+	// Mantener estado
+}
+void Solucionada::recibirRespuesta(Pregunta * preg) {
+	// Mantener estado
+}

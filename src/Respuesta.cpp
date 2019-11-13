@@ -57,3 +57,8 @@ void Respuesta::crearNotificacion(){
 
 	}
 }
+
+
+Pregunta* Respuesta::getPregunta() const{
+	return this->pregunta;
+}

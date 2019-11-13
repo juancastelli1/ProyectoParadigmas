@@ -37,7 +37,7 @@ string Pregunta::getTipoEstado() const{
 int Pregunta::getMesesDesdeUltimaRespuesta() const{
 	int meses;
 	Fecha f = respuestas.back()->getFecha();
-	while(f.getMes() != Fecha::mesActual() & f.getAnio() != Fecha::anioActual()){
+	while(f.getMes() != Fecha::mesActual() && f.getAnio() != Fecha::anioActual()){
 		f.incrementarFecha(f.DiasDelMes());
 		meses = 1;
 	}
@@ -57,5 +57,9 @@ void Pregunta::chequearEstadoSegunTiempo(){
 void Pregunta::setEstado(Estado* est){}
 Pregunta::~Pregunta() {
 	// TODO Auto-generated destructor stub
+}
+
+string Pregunta::getTitulo() const {
+	return this->titulo;
 }
 
