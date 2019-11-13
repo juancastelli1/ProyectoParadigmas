@@ -6,8 +6,11 @@
  */
 
 #include "Notificacion.h"
+#include "Respuesta.h"
+#include "Usuario.h"
+#include "Pregunta.h"
 
-Notificacion::Notificacion() {
+Notificacion::Notificacion(Respuesta* resp) : respuesta(resp) {
 	// TODO Auto-generated constructor stub
 
 }
@@ -17,17 +20,20 @@ Notificacion::~Notificacion() {
 }
 
 Usuario* Notificacion::getUserRespuesta(){
-	Usuario *usuario = Usuario->getUserPreg();
-	return usuario;
+	return respuesta->getUserResp();
 }
 
 Usuario* Notificacion::getUserPregunta(){
-	Usuario *usuario = Usuario->getUserResp();
-	return usuario;
+	return respuesta->getUserPreg();
 }
 
 void Notificacion::mostrarNotificacion(){
 	Usuario *usuarioRespuesta = getUserRespuesta();
 	Usuario *usuarioPregunta = getUserPregunta();
-	cout<<usuarioPregunta->getNombre() <<", el usuario " << usuarioRespuesta->getNombre() << "ha respondido tu pregunta"<< respuesta->getUserPreg()->getTitulo()<<endl;
+
+	cout << usuarioPregunta->getNombre();
+	cout <<", el usuario " << usuarioRespuesta->getNombre();
+	cout << " ha respondido tu pregunta ";
+	cout << respuesta->getPregunta()->getTitulo();
+	cout << endl;
 }

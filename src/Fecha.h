@@ -25,9 +25,9 @@ public:
 	int DiasDelMes();
 	void incrementarFecha(int cantdias);
 	void mostrar();
-	static int diaActual() const;
-	static int mesActual() const;
-	static int anioActual() const;
+	static int diaActual();
+	static int mesActual();
+	static int anioActual();
 	int getDia();
 	int getMes();
 	int getAnio();

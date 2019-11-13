@@ -27,7 +27,7 @@ class Pregunta {
 	Estado* estado;
 	Respuesta * solucion;
 public:
-	Pregunta();
+	Pregunta(string titulo, string descripcion, string url_imagen, Usuario* user_preg);
 	~Pregunta();
 
 	Usuario* getUserPregunta() const;
@@ -48,6 +48,8 @@ public:
 	void chequearEstadoSegunTiempo();
 	void suspenderPregunta();
 	void setEstado(Estado* est);
+
+	string getTitulo() const;
 };
 
 #endif /* PREGUNTA_H_ */

@@ -145,17 +145,17 @@ void Fecha::incrementarFecha(int cantdias){
 	}
 	dia = diastot;
 }
-static int Fecha::diaActual() const{
+int Fecha::diaActual(){
 	time_t t = time(NULL);
 	tm* timePtr = localtime(&t);
 	return timePtr->tm_mday;
 }
-static int Fecha::mesActual() const{
+int Fecha::mesActual(){
 	time_t t = time(NULL);
 	tm* timePtr = localtime(&t);
 	return timePtr->tm_mon+1;
 }
-static int Fecha::anioActual() const{
+int Fecha::anioActual(){
 	time_t t = time(NULL);
 	tm* timePtr = localtime(&t);
 	return timePtr->tm_year+1900;

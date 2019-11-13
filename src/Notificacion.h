@@ -15,11 +15,11 @@ class Usuario;
 #define NOTIFICACION_H_
 
 class Notificacion {
-	Respuesta *respuesta:
-private:
+	Respuesta* respuesta;
+public:
+	Notificacion(Respuesta* resp);
 	Usuario* getUserPregunta();
 	Usuario* getUserRespuesta();
-public:
 	Notificacion();
 	virtual ~Notificacion();
 	void mostrarNotificacion();

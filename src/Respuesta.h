@@ -31,6 +31,7 @@ public:
 	void crearNotificacion();
 	Usuario* getUserResp();
 	Usuario* getUserPreg();
+	Pregunta* getPregunta();
 	Fecha getFecha();
 };
 
