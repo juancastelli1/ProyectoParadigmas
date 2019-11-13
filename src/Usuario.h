@@ -8,9 +8,9 @@
 #ifndef USUARIO_H_
 #define USUARIO_H_
 
-#include "Pregunta.h"
-#include "Respuesta.h"
-#include "Notificacion.h"
+class Pregunta;
+class Respuesta;
+class Notificacion;
 
 #include <iostream>
 using namespace std;

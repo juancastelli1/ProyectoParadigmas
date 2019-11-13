@@ -7,9 +7,9 @@
 
 #ifndef RESPUESTA_H_
 #define RESPUESTA_H_
-#include "Pregunta.h"
-#include "Fecha.h"
-#include "Usuario.h"
+class Pregunta;
+class Fecha;
+class Usuario;
 #include <string>
 using namespace std;
 

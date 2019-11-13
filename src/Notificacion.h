@@ -7,8 +7,8 @@
 
 #include <iostream>
 using namespace std;
-#include "Respuesta.h"
-#include "Usuario.h"
+class Respuesta;
+class Usuario;
 #include <vector>
 
 #ifndef NOTIFICACION_H_

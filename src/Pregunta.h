@@ -11,9 +11,9 @@
 #include <vector>
 #include "time.h"
 #include "Fecha.h"
-#include "Estado.h"
-#include "Respuesta.h"
-#include "Usuario.h"
+class Estado;
+class Respuesta;
+class Usuario;
 using namespace std;
 
 class Pregunta {
