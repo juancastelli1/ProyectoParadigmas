@@ -33,12 +33,10 @@ void Activa::suspenderPregunta(Pregunta * preg){
 	preg->setEstado(Suspendida::getInstancia());
 }
 void Activa::marcarConSolucion(Pregunta * preg){
-
+	preg->setEstado(Solucionada::getInstancia());
 }
 void Activa::recibirRespuesta(Pregunta * preg){
-	if (admiteRespuesta()){
-		//preg->
-	}
+	// Mantener estado
 }
 void Activa::chequearEstadoSegunTiempoTranscurridoDesdeUltimaRespuesta(Pregunta * preg){
 	if(preg->getMesesDesdeUltimaRespuesta()>=6){

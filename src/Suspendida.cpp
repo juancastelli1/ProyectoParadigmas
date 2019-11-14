@@ -27,16 +27,16 @@ bool Suspendida::admiteRespuesta(){
 	return true;
 }
 void Suspendida::suspenderPregunta(Pregunta * preg){
-
+	// Mantener estado
 }
 void Suspendida::marcarConSolucion(Pregunta * preg){
-
+	// Mantener estado
 }
 void Suspendida::recibirRespuesta(Pregunta * preg){
-
+	// Mantener estado
 }
 void Suspendida::chequearEstadoSegunTiempoTranscurridoDesdeUltimaRespuesta(Pregunta * preg){
-
+	// MantenerEstado
 }
 Suspendida::~Suspendida(){
 	delete Instancia;
