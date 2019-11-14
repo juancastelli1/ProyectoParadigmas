@@ -16,12 +16,12 @@ using namespace std;
 class SistemaGestion {
 private:
 	vector<Usuario> usuarios;
-	vector<Pregunta> preguntas;
+	vector<Pregunta*> preguntas;
 public:
 	SistemaGestion();
 	virtual ~SistemaGestion();
 	void agregarPregunta(string titulo, string descripcion, string url_imagen, Usuario *user_preg);
-	void agregarRespuesta(Usuario *user_resp, Pregunta *pregunta, string descripcion, string url_imagen);
+	void agregarRespuesta(Usuario *user_resp, Pregunta *pregunta, string titulo, string descripcion, string url_imagen);
 	void agregarUsuario(string nombre, string apellido, string pais_origen, string email, string contrasenia, string url_imagen);
 	void suspenderCuenta(Usuario *user);
 

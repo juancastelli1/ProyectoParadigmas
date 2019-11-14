@@ -36,6 +36,9 @@ void Usuario::crearRespuesta(Pregunta* pregunta, string titulo, string descripci
 		pregunta->recibirRespuesta(R1);
 	}
 }
+void Usuario::agregarPregunta(Pregunta* pregunta) {
+	this->preguntas.push_back(pregunta);
+}
 void Usuario::agregarNotificacion(Notificacion* notificacion){
 	notificaciones.push_back(notificacion);
 }

@@ -33,6 +33,7 @@ public:
 	virtual ~Usuario();
 	void verNotificacion();
 	void crearRespuesta(Pregunta* pregunta, string titulo,string descripcion, string url_imagen, Usuario *usuario);
+	void agregarPregunta(Pregunta* pregunta);
 	void agregarNotificacion(Notificacion* notificacion);
 	string getNombre();
 	string getApellido();

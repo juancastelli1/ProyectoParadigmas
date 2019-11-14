@@ -17,11 +17,12 @@ SistemaGestion::~SistemaGestion() {
 }
 
 void SistemaGestion::agregarPregunta(string titulo, string descripcion, string url_imagen, Usuario *user_preg){
-	Pregunta pregunta(titulo, descripcion, url_imagen, user_preg);
+	Pregunta* pregunta = new Pregunta(titulo, descripcion, url_imagen, user_preg);
 	preguntas.push_back(pregunta);
+	user_preg->agregarPregunta(pregunta);
 }
-void SistemaGestion::agregarRespuesta(Usuario *user_resp, Pregunta *pregunta, string descripcion, string url_imagen){
-
+void SistemaGestion::agregarRespuesta(Usuario *user_resp, Pregunta *pregunta, string titulo, string descripcion, string url_imagen){
+	user_resp->crearRespuesta(pregunta, titulo, descripcion, url_imagen, user_resp);
 }
 
 void SistemaGestion::agregarUsuario(string nombre, string apellido, string pais_origen, string email, string contrasenia, string url_imagen){
