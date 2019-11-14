@@ -8,10 +8,17 @@
 #include "Pregunta.h"
 #include "Respuesta.h"
 #include "Estado.h"
+#include "Activa.h"
+#include "Fecha.h"
 
 Pregunta::Pregunta(string titulo, string descripcion, string url_imagen, Usuario* user_preg) {
-	// TODO Auto-generated constructor stub
-
+	this->titulo = titulo;
+	this->descripcion = descripcion;
+	this->url_imagen = url_imagen;
+	this->user_pregunta = user_preg;
+	this->fecha = Fecha();
+	this->estado = Activa::getInstancia();
+	this->solucion = NULL;
 }
 Usuario* Pregunta::getUserPregunta() const{
 	return user_pregunta;
@@ -45,16 +52,20 @@ int Pregunta::getMesesDesdeUltimaRespuesta() const{
 }
 void Pregunta::recibirRespuesta(Respuesta* resp){
 	respuestas.push_back(resp);
+	estado->recibirRespuesta(this);
 }
 void Pregunta::marcarConSolucion(Respuesta* resp){
 	solucion = resp;
+	estado->marcarConSolucion(this);
 }
 void Pregunta::chequearEstadoSegunTiempo(){
 	if (getTipoEstado() == "Activa"){
 		estado->chequearEstadoSegunTiempoTranscurridoDesdeUltimaRespuesta(this);
 	}
 }
-void Pregunta::setEstado(Estado* est){}
+void Pregunta::setEstado(Estado* est){
+	estado = est;
+}
 Pregunta::~Pregunta() {
 	// TODO Auto-generated destructor stub
 }
