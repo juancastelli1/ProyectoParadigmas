@@ -15,7 +15,7 @@ using namespace std;
 
 class SistemaGestion {
 private:
-	vector<Usuario> usuarios;
+	vector<Usuario*> usuarios;
 	vector<Pregunta*> preguntas;
 public:
 	SistemaGestion();
@@ -24,7 +24,8 @@ public:
 	void agregarRespuesta(Usuario *user_resp, Pregunta *pregunta, string titulo, string descripcion, string url_imagen);
 	void agregarUsuario(string nombre, string apellido, string pais_origen, string email, string contrasenia, string url_imagen);
 	void suspenderCuenta(Usuario *user);
-
+	Usuario* buscarUser(int id_user) const;
+	Pregunta* buscarPregunta(int id_pregunta) const;
 };
 
 #endif /* SISTEMAGESTION_H_ */
