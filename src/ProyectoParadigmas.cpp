@@ -6,7 +6,6 @@ int main() {
 	SistemaGestion Sistema = SistemaGestion();
 
 	Sistema.agregarUsuario("Juan", "Perez", "Argentina", "juanperez@email.com", "JuanPerez");
-
 	Sistema.agregarUsuario("Hemano de Juan", "Perez", "Argentina", "juanperez@email.com", "JuanPerez");
 
 	Sistema.mostrarListaUsers();
@@ -15,7 +14,7 @@ int main() {
 
 	Sistema.agregarPregunta("Titulo", "descripcion", userElegido);
 
+	Sistema.mostrarListaPreguntas();
 
-	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
 	return 0;
 }

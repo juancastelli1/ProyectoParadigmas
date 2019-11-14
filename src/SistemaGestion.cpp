@@ -66,3 +66,15 @@ void SistemaGestion::mostrarListaUsers() const {
 		cout << endl;
 	}
 }
+
+void SistemaGestion::mostrarListaPreguntas() const {
+	for (Pregunta* p : this->preguntas) {
+		cout << endl;
+		cout << "Titulo pregunta: " << p->getTitulo() << endl;
+		cout << "Descripcion: " << p->getDescripcion() << endl;
+		cout << "Estado: " << p->getTipoEstado() << endl;
+		cout << "Url Imagen: " << p->getUrlImagen() << endl;
+		cout << "Id Pregunta: " << p->getIdPregunta() << endl;
+		cout << endl;
+	}
+}

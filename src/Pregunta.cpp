@@ -76,7 +76,15 @@ Pregunta::~Pregunta() {
 string Pregunta::getTitulo() const {
 	return this->titulo;
 }
-
+string Pregunta::getDescripcion() const {
+	return this->descripcion;
+}
+string Pregunta::getUrlImagen() const {
+	return this->url_imagen;
+}
+Fecha Pregunta::getFecha() const {
+	return this->fecha;
+}
 int Pregunta::getIdPregunta() const {
 	return id_pregunta;
 }

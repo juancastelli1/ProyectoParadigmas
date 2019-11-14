@@ -52,6 +52,9 @@ public:
 	void setEstado(Estado* est);
 
 	string getTitulo() const;
+	string getDescripcion() const;
+	string getUrlImagen() const;
+	Fecha getFecha() const;
 	int getIdPregunta() const;
 };
 

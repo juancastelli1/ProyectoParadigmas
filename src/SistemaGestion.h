@@ -27,6 +27,7 @@ public:
 	Usuario* buscarUser(int id_user) const;
 	Pregunta* buscarPregunta(int id_pregunta) const;
 	void mostrarListaUsers() const;
+	void mostrarListaPreguntas() const;
 };
 
 #endif /* SISTEMAGESTION_H_ */
