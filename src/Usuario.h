@@ -31,7 +31,7 @@ private:
 	vector<Notificacion *> notificaciones;
 
 public:
-	Usuario(string nombre, string apellido, string pais_origen, string  email, string password, string url_imagen);
+	Usuario(string nombre, string apellido, string pais_origen, string  email, string password, string url_imagen = "no img");
 	virtual ~Usuario();
 	void verNotificacion();
 	void crearRespuesta(Pregunta* pregunta, string titulo,string descripcion, string url_imagen, Usuario *usuario);

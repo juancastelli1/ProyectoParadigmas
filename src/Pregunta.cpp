@@ -13,7 +13,7 @@
 
 int Pregunta::autonum = 0;
 
-Pregunta::Pregunta(string titulo, string descripcion, string url_imagen, Usuario* user_preg) {
+Pregunta::Pregunta(string titulo, string descripcion, Usuario* user_preg, string url_imagen) {
 	this->id_pregunta = autonum++;
 	this->titulo = titulo;
 	this->descripcion = descripcion;

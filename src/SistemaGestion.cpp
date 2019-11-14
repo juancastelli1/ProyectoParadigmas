@@ -16,8 +16,8 @@ SistemaGestion::~SistemaGestion() {
 	// TODO Auto-generated destructor stub
 }
 
-void SistemaGestion::agregarPregunta(string titulo, string descripcion, string url_imagen, Usuario *user_preg){
-	Pregunta* pregunta = new Pregunta(titulo, descripcion, url_imagen, user_preg);
+void SistemaGestion::agregarPregunta(string titulo, string descripcion, Usuario *user_preg, string url_imagen){
+	Pregunta* pregunta = new Pregunta(titulo, descripcion, user_preg, url_imagen);
 	preguntas.push_back(pregunta);
 	user_preg->agregarPregunta(pregunta);
 }
@@ -53,4 +53,16 @@ Pregunta* SistemaGestion::buscarPregunta(int id_pregunta) const {
 	}
 	// No existe la pregnta con este id
 	return NULL;
+}
+void SistemaGestion::mostrarListaUsers() const {
+	for (Usuario* user : this->usuarios) {
+		cout << endl;
+		cout << "Nombre: " << user->getNombre() << endl;
+		cout << "Apellido: " << user->getApellido() << endl;
+		cout << "Pais: " << user->getPaisOrigen() << endl;
+		cout << "Email: " << user->getEmail() << endl;
+		cout << "Imagen: " << user->getUrlImagen() << endl;
+		cout << "Id User: " << user->getIdUser() << endl;
+		cout << endl;
+	}
 }

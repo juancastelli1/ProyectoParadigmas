@@ -29,7 +29,7 @@ class Pregunta {
 	Estado* estado;
 	Respuesta * solucion;
 public:
-	Pregunta(string titulo, string descripcion, string url_imagen, Usuario* user_preg);
+	Pregunta(string titulo, string descripcion, Usuario* user_preg, string url_imagen = "no img" );
 	~Pregunta();
 
 	Usuario* getUserPregunta() const;
