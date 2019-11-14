@@ -10,7 +10,10 @@
 #include "Respuesta.h"
 #include "Notificacion.h"
 
+int Usuario::autonum = 0;
+
 Usuario::Usuario(string nombre, string apellido, string pais_origen, string  email, string password, string url_imagen) {
+	this->id_user = autonum++;
 	this->nombre = nombre;
 	this->apellido = apellido;
 	this->pais_origen = pais_origen;
@@ -60,4 +63,8 @@ string Usuario::getPassword(){
 }
 string Usuario::getUrlImagen(){
 	return this->url_imagen;
+}
+
+int Usuario::getIdUser() const{
+	return id_user;
 }

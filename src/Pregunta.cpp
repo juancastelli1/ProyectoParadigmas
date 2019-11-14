@@ -11,7 +11,10 @@
 #include "Activa.h"
 #include "Fecha.h"
 
+int Pregunta::autonum = 0;
+
 Pregunta::Pregunta(string titulo, string descripcion, string url_imagen, Usuario* user_preg) {
+	this->id_pregunta = autonum++;
 	this->titulo = titulo;
 	this->descripcion = descripcion;
 	this->url_imagen = url_imagen;
@@ -72,5 +75,9 @@ Pregunta::~Pregunta() {
 
 string Pregunta::getTitulo() const {
 	return this->titulo;
+}
+
+int Pregunta::getIdPregunta() const {
+	return id_pregunta;
 }
 

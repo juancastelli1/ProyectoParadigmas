@@ -10,6 +10,8 @@
 #include "Notificacion.h"
 #include "Usuario.h"
 
+int Respuesta::autonum = 0;
+
 Respuesta::Respuesta(
 		Pregunta *pregunta,
 		string titulo,
@@ -18,6 +20,7 @@ Respuesta::Respuesta(
 		string url_imagen
 		)
 {
+	this->id_respuesta = autonum++;
 	this->pregunta = pregunta;
 	this->titulo = titulo;
 	this->descripcion = descripcion;
@@ -61,4 +64,8 @@ void Respuesta::crearNotificacion(){
 
 Pregunta* Respuesta::getPregunta() const{
 	return this->pregunta;
+}
+
+int Respuesta::getIdRespuesta() const {
+	return id_respuesta;
 }

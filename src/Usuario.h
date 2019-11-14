@@ -18,6 +18,8 @@ using namespace std;
 
 class Usuario {
 private:
+	static int autonum;
+	int id_user;
 	string nombre;
 	string apellido;
 	string pais_origen;
@@ -41,6 +43,7 @@ public:
 	string getEmail();
 	string getPassword();
 	string getUrlImagen();
+	int getIdUser() const;
 };
 
 #endif /* USUARIO_H_ */

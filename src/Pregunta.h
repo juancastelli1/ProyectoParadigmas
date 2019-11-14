@@ -17,6 +17,8 @@ class Usuario;
 using namespace std;
 
 class Pregunta {
+	static int autonum;
+	int id_pregunta;
 	string titulo;
 	string descripcion;
 	string url_imagen;
@@ -50,6 +52,7 @@ public:
 	void setEstado(Estado* est);
 
 	string getTitulo() const;
+	int getIdPregunta() const;
 };
 
 #endif /* PREGUNTA_H_ */

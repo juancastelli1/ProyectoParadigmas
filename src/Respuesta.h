@@ -16,6 +16,8 @@ using namespace std;
 
 class Respuesta {
 private:
+	static int autonum;
+	int id_respuesta;
 	string titulo;
 	string descripcion;
 	string url_imagen;
@@ -39,6 +41,7 @@ public:
 	Usuario* getUserPreg();
 	Pregunta* getPregunta() const;
 	Fecha getFecha();
+	int getIdRespuesta() const;
 };
 
 #endif /* RESPUESTA_H_ */
