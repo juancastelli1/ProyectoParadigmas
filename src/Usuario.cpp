@@ -9,6 +9,8 @@
 #include "Pregunta.h"
 #include "Respuesta.h"
 #include "Notificacion.h"
+#include <iostream>
+using namespace std;
 
 int Usuario::autonum = 0;
 
@@ -67,4 +69,13 @@ string Usuario::getUrlImagen(){
 
 int Usuario::getIdUser() const{
 	return id_user;
+}
+void Usuario::mostrarInfoUser() const {
+	cout << "Nombre: " << this->nombre << endl;
+	cout << "Apellido: " << this->apellido << endl;
+	cout << "Pais: " << this->pais_origen << endl;
+	cout << "Email: " << this->email << endl;
+	cout << "Imagen: " << this->url_imagen << endl;
+	cout << "Id User: " << this->id_user << endl;
+	cout << endl;
 }

@@ -89,3 +89,11 @@ int Pregunta::getIdPregunta() const {
 	return id_pregunta;
 }
 
+void Pregunta::mostrarInfoPregunta() const {
+	cout << "Titulo pregunta: " << this->titulo << endl;
+	cout << "Descripcion: " << this->descripcion << endl;
+	cout << "Estado: " << this->estado->getTipoEstado() << endl;
+	cout << "Url Imagen: " << this->url_imagen << endl;
+	cout << "Id Pregunta: " << this->id_pregunta << endl;
+	cout << endl;
+}

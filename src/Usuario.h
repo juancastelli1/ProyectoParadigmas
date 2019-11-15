@@ -44,6 +44,7 @@ public:
 	string getPassword();
 	string getUrlImagen();
 	int getIdUser() const;
+	void mostrarInfoUser() const;
 };
 
 #endif /* USUARIO_H_ */

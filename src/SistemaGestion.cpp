@@ -55,26 +55,19 @@ Pregunta* SistemaGestion::buscarPregunta(int id_pregunta) const {
 	return NULL;
 }
 void SistemaGestion::mostrarListaUsers() const {
+	cout << "---Usuarios---" << endl;
 	for (Usuario* user : this->usuarios) {
-		cout << endl;
-		cout << "Nombre: " << user->getNombre() << endl;
-		cout << "Apellido: " << user->getApellido() << endl;
-		cout << "Pais: " << user->getPaisOrigen() << endl;
-		cout << "Email: " << user->getEmail() << endl;
-		cout << "Imagen: " << user->getUrlImagen() << endl;
-		cout << "Id User: " << user->getIdUser() << endl;
-		cout << endl;
+		user->mostrarInfoUser();
 	}
+	cout << "--------------" << endl;
+	cout << endl;
 }
 
 void SistemaGestion::mostrarListaPreguntas() const {
+	cout << "---Lista de preguntas---" << endl;
 	for (Pregunta* p : this->preguntas) {
-		cout << endl;
-		cout << "Titulo pregunta: " << p->getTitulo() << endl;
-		cout << "Descripcion: " << p->getDescripcion() << endl;
-		cout << "Estado: " << p->getTipoEstado() << endl;
-		cout << "Url Imagen: " << p->getUrlImagen() << endl;
-		cout << "Id Pregunta: " << p->getIdPregunta() << endl;
-		cout << endl;
+		p->mostrarInfoPregunta();
 	}
+	cout << "------------------------" << endl;
+	cout << endl;
 }
