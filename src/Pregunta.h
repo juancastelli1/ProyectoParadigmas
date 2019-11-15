@@ -31,12 +31,13 @@ class Pregunta {
 public:
 	Pregunta(string titulo, string descripcion, Usuario* user_preg, string url_imagen = "no img" );
 	Pregunta(string titulo, string descripcion, Usuario* user_preg, vector<string> tags, string url_imagen = "no img" );
+	Pregunta(string titulo, string descripcion, Usuario* user_preg, vector<string> tags, Fecha fec, string url_imagen = "no img");
 	~Pregunta();
 
 	Usuario* getUserPregunta() const;
 	vector<Respuesta*> getRespuestas() const;
 	vector<string> getTags() const;
-	void mostrarInfoPregunta() const; // Imprime por pantalla la informacion de la pregunta
+	void mostrarInfoPregunta() ; // Imprime por pantalla la informacion de la pregunta
 
 	int getMesesDesdeUltimaRespuesta() const;
 	void agregarTag(string tag);

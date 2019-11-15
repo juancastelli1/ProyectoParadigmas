@@ -37,6 +37,17 @@ Pregunta::Pregunta(string titulo, string descripcion, Usuario* user_preg, vector
 	this->solucion = NULL;
 	this->tags = tags;
 }
+Pregunta::Pregunta(string titulo, string descripcion, Usuario* user_preg, vector<string> tags, Fecha fec, string url_imagen) {
+	this->id_pregunta = autonum++;
+	this->titulo = titulo;
+	this->descripcion = descripcion;
+	this->url_imagen = url_imagen;
+	this->user_pregunta = user_preg;
+	this->fecha = fec;
+	this->estado = Activa::getInstancia();
+	this->solucion = NULL;
+	this->tags = tags;
+}
 Usuario* Pregunta::getUserPregunta() const{
 	return user_pregunta;
 }
@@ -56,12 +67,17 @@ string Pregunta::getTipoEstado() const{
 	return estado->getTipoEstado();
 }
 int Pregunta::getMesesDesdeUltimaRespuesta() const{
-	int meses;
-	Fecha f = respuestas.back()->getFecha();
-	while(f.getMes() != Fecha::mesActual() && f.getAnio() != Fecha::anioActual()){
-		f.incrementarFecha(f.DiasDelMes());
-		meses = 1;
+	int meses = 0;
+	Fecha f;
+	if(respuestas.size() > 0){
+		f = respuestas.back()->getFecha();
 	}
+	else {
+		f = this->fecha;
+	}
+	meses = ((Fecha::anioActual() - f.getAnio())-1)*12;
+	meses += 12 - f.getMes();
+	meses += Fecha::mesActual();
 	return meses;
 }
 void Pregunta::recibirRespuesta(Respuesta* resp){
@@ -103,7 +119,8 @@ vector<string> Pregunta::getTags() const {
 	return this->tags;
 }
 
-void Pregunta::mostrarInfoPregunta() const {
+void Pregunta::mostrarInfoPregunta() {
+	this->chequearEstadoSegunTiempo();
 	cout << this->user_pregunta->getNombre()
 		 << " "
 		 << this->user_pregunta->getApellido()
@@ -123,15 +140,22 @@ void Pregunta::mostrarInfoPregunta() const {
 }
 
 void Pregunta::ordernarRespuestas() {
-	std::sort(respuestas.begin(), respuestas.end());
+	std::sort(respuestas.begin(), respuestas.end(),  greater<Respuesta*>());
 }
 
 void Pregunta::mostrarRespuestas() {
 	this->ordernarRespuestas();
 
 	cout << "---Lista de respuestas---" << endl;
+
+	if (this->solucion != NULL) {
+		cout<<"MARCADA COMO SOLUCION"<<endl;
+		this->solucion->mostrarInfoRespuesta();
+	}
 	for (Respuesta* respuesta : this->respuestas) {
-		respuesta->mostrarInfoRespuesta();
+		if(respuesta!=solucion){
+			respuesta->mostrarInfoRespuesta();
+		}
 	}
 	cout << "------------------------" << endl;
 	cout << endl;

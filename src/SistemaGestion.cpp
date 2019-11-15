@@ -31,6 +31,11 @@ void SistemaGestion::agregarPregunta(string titulo, string descripcion, Usuario 
 	user_preg->agregarPregunta(pregunta);
 }
 
+void SistemaGestion::agregarPregunta(string titulo, string descripcion, Usuario *user_preg, vector<string> tags, Fecha fec, string url_imagen) {
+	Pregunta* pregunta = new Pregunta(titulo, descripcion, user_preg, tags,fec, url_imagen);
+	preguntas.push_back(pregunta);
+	user_preg->agregarPregunta(pregunta);
+}
 void SistemaGestion::agregarRespuesta(Usuario *user_resp, Pregunta *pregunta, string titulo, string descripcion, string url_imagen){
 	user_resp->crearRespuesta(pregunta, titulo, descripcion, url_imagen, user_resp);
 }
@@ -77,8 +82,10 @@ void SistemaGestion::mostrarListaPreguntas() const {
 	cout << "---Lista de preguntas---" << endl;
 	for (Pregunta* p : this->preguntas) {
 		p->mostrarInfoPregunta();
+		cout << endl;
+		cout << "------------------------" << endl;
+		cout << endl;
 	}
-	cout << "------------------------" << endl;
 	cout << endl;
 }
 
@@ -102,4 +109,13 @@ void SistemaGestion::darLike(Respuesta* respuesta) {
 
 void SistemaGestion::agregarTag(Pregunta* pregunta, string tag) {
 	pregunta->agregarTag(tag);
+}
+
+Respuesta* SistemaGestion::buscarRespuesta(Pregunta* pregunta, int id_respuesta) const {
+	for (Respuesta* respuesta : pregunta->getRespuestas()) {
+		if (respuesta->getIdRespuesta() == id_respuesta) {
+			return respuesta;
+		}
+	}
+	return NULL;
 }

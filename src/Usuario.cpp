@@ -92,7 +92,7 @@ void Usuario::suspenderUser() {
 	this->notificaciones.clear();
 
 	this->nombre = "User Baneado";
-	this->apellido = "User baneado";
+	this->apellido = " ";
 	this->url_imagen = "no img";
 	this->id_user = -1;
 }
