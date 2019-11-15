@@ -8,6 +8,7 @@
 #include <algorithm>
 #include "Pregunta.h"
 #include "Respuesta.h"
+#include "Usuario.h"
 #include "Estado.h"
 #include "Activa.h"
 #include "Fecha.h"
@@ -103,6 +104,10 @@ vector<string> Pregunta::getTags() const {
 }
 
 void Pregunta::mostrarInfoPregunta() const {
+	cout << this->user_pregunta->getNombre()
+		 << " "
+		 << this->user_pregunta->getApellido()
+		 << " hizo una pregunta" << endl;
 	cout << "Titulo pregunta: " << this->titulo << endl;
 	cout << "Descripcion: " << this->descripcion << endl;
 	cout << "Estado: " << this->estado->getTipoEstado() << endl;

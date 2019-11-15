@@ -79,6 +79,11 @@ bool Respuesta::operator< (const Respuesta &otraRespuesta) const {
 }
 
 void Respuesta::mostrarInfoRespuesta() const{
+	cout << this->userRespuesta->getNombre()
+		 << " "
+		 << this->userRespuesta->getApellido()
+		 << " escribio una respuesta" << endl;
+
 	cout << "Titulo Respuesta: " << this->titulo << endl;
 	cout << "Descripcion: " << this->descripcion << endl;
 	cout << "Url Imagen: " << this->url_imagen << endl;

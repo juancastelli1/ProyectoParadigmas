@@ -22,5 +22,7 @@ int main() {
 	Pregunta* preguntaELegida = Sistema.buscarPregunta(0); // Selecciona la pregunta de Juan Perez
 	Sistema.agregarRespuesta(userElegido, preguntaELegida, "Mi respuesta", "mi descripcion");
 
+
+	preguntaELegida->mostrarRespuestas();
 	return 0;
 }
