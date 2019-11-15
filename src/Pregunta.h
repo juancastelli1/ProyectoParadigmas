@@ -30,6 +30,7 @@ class Pregunta {
 	Respuesta * solucion;
 public:
 	Pregunta(string titulo, string descripcion, Usuario* user_preg, string url_imagen = "no img" );
+	Pregunta(string titulo, string descripcion, Usuario* user_preg, vector<string> tags, string url_imagen = "no img" );
 	~Pregunta();
 
 	Usuario* getUserPregunta() const;
@@ -38,7 +39,6 @@ public:
 	void mostrarInfoPregunta() const; // Imprime por pantalla la informacion de la pregunta
 
 	int getMesesDesdeUltimaRespuesta() const;
-	void ordenarRespuestas();
 	void agregarTag(string tag);
 
 	// Metodos del estado
@@ -56,6 +56,8 @@ public:
 	string getUrlImagen() const;
 	Fecha getFecha() const;
 	int getIdPregunta() const;
+	void ordernarRespuestas();
+	void mostrarRespuestas();
 };
 
 #endif /* PREGUNTA_H_ */

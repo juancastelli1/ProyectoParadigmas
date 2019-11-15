@@ -5,6 +5,7 @@
  *      Author: Angel
  */
 
+#include <algorithm>
 #include "Pregunta.h"
 #include "Respuesta.h"
 #include "Estado.h"
@@ -23,14 +24,23 @@ Pregunta::Pregunta(string titulo, string descripcion, Usuario* user_preg, string
 	this->estado = Activa::getInstancia();
 	this->solucion = NULL;
 }
+
+Pregunta::Pregunta(string titulo, string descripcion, Usuario* user_preg, vector<string> tags, string url_imagen) {
+	this->id_pregunta = autonum++;
+	this->titulo = titulo;
+	this->descripcion = descripcion;
+	this->url_imagen = url_imagen;
+	this->user_pregunta = user_preg;
+	this->fecha = Fecha();
+	this->estado = Activa::getInstancia();
+	this->solucion = NULL;
+	this->tags = tags;
+}
 Usuario* Pregunta::getUserPregunta() const{
 	return user_pregunta;
 }
 vector<Respuesta*> Pregunta::getRespuestas() const{
 	return respuestas;
-}
-vector<string> Pregunta::getTags() const{
-	return tags;
 }
 void Pregunta::suspenderPregunta(){
 	estado->suspenderPregunta(this);
@@ -88,12 +98,40 @@ Fecha Pregunta::getFecha() const {
 int Pregunta::getIdPregunta() const {
 	return id_pregunta;
 }
+vector<string> Pregunta::getTags() const {
+	return this->tags;
+}
 
 void Pregunta::mostrarInfoPregunta() const {
 	cout << "Titulo pregunta: " << this->titulo << endl;
 	cout << "Descripcion: " << this->descripcion << endl;
 	cout << "Estado: " << this->estado->getTipoEstado() << endl;
 	cout << "Url Imagen: " << this->url_imagen << endl;
+	cout << "Fecha: " << this->fecha << endl;
 	cout << "Id Pregunta: " << this->id_pregunta << endl;
+	cout << "Tags: -";
+	for(string tag: this->tags) {
+		cout << tag << "-";
+	}
+
 	cout << endl;
+}
+
+void Pregunta::ordernarRespuestas() {
+	std::sort(respuestas.begin(), respuestas.end());
+}
+
+void Pregunta::mostrarRespuestas() {
+	this->ordernarRespuestas();
+
+	cout << "---Lista de respuestas---" << endl;
+	for (Respuesta* respuesta : this->respuestas) {
+		respuesta->mostrarInfoRespuesta();
+	}
+	cout << "------------------------" << endl;
+	cout << endl;
+}
+
+void Pregunta::agregarTag(string tag) {
+	this->tags.push_back(tag);
 }

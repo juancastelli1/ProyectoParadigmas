@@ -5,7 +5,10 @@
  *      Author: Alumno
  */
 
+#include <algorithm>
+#include <vector>
 #include "SistemaGestion.h"
+#include "Respuesta.h"
 
 SistemaGestion::SistemaGestion() {
 	// TODO Auto-generated constructor stub
@@ -21,6 +24,13 @@ void SistemaGestion::agregarPregunta(string titulo, string descripcion, Usuario 
 	preguntas.push_back(pregunta);
 	user_preg->agregarPregunta(pregunta);
 }
+
+void SistemaGestion::agregarPregunta(string titulo, string descripcion, Usuario *user_preg, vector<string> tags, string url_imagen) {
+	Pregunta* pregunta = new Pregunta(titulo, descripcion, user_preg, tags, url_imagen);
+	preguntas.push_back(pregunta);
+	user_preg->agregarPregunta(pregunta);
+}
+
 void SistemaGestion::agregarRespuesta(Usuario *user_resp, Pregunta *pregunta, string titulo, string descripcion, string url_imagen){
 	user_resp->crearRespuesta(pregunta, titulo, descripcion, url_imagen, user_resp);
 }
@@ -31,7 +41,7 @@ void SistemaGestion::agregarUsuario(string nombre, string apellido, string pais_
 
 }
 void SistemaGestion::suspenderCuenta(Usuario *user){
-
+	user->suspenderUser();
 }
 
 Usuario* SistemaGestion::buscarUser(int id_user) const {
@@ -70,4 +80,26 @@ void SistemaGestion::mostrarListaPreguntas() const {
 	}
 	cout << "------------------------" << endl;
 	cout << endl;
+}
+
+void SistemaGestion::mostrarListaPreguntas(string tag) const {
+	cout << "---Lista de preguntas con el tag " << tag << "---" << endl;
+
+	vector<string> tagsPregunta;
+	for (Pregunta* p : this->preguntas) {
+		// Chequear existencia del tag en la pregunta
+		tagsPregunta = p->getTags();
+		if(std::find(tagsPregunta.begin(), tagsPregunta.end(), tag) != tagsPregunta.end()) {
+			p->mostrarInfoPregunta();
+		}
+	}
+	cout << "------------------------" << endl;
+	cout << endl;
+}
+void SistemaGestion::darLike(Respuesta* respuesta) {
+	respuesta->darLike();
+}
+
+void SistemaGestion::agregarTag(Pregunta* pregunta, string tag) {
+	pregunta->agregarTag(tag);
 }

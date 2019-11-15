@@ -42,6 +42,10 @@ public:
 	Pregunta* getPregunta() const;
 	Fecha getFecha();
 	int getIdRespuesta() const;
+	void darLike();
+	bool operator< (const Respuesta &otraRespuesta) const; // Operador < para ordenar por likes
+
+	void mostrarInfoRespuesta() const;
 };
 
 #endif /* RESPUESTA_H_ */

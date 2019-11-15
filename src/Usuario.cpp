@@ -79,3 +79,20 @@ void Usuario::mostrarInfoUser() const {
 	cout << "Id User: " << this->id_user << endl;
 	cout << endl;
 }
+void Usuario::suspenderUser() {
+	// Suspender las preguntas del usuario
+	for(Pregunta* p : this->preguntas) {
+		p->suspenderPregunta();
+	}
+
+	// Eliminar las notificaciones del usuario
+	for(Notificacion* notif : this->notificaciones) {
+		delete notif;
+	}
+	this->notificaciones.clear();
+
+	this->nombre = "User Baneado";
+	this->apellido = "User baneado";
+	this->url_imagen = "no img";
+	this->id_user = -1;
+}

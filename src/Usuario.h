@@ -45,6 +45,7 @@ public:
 	string getUrlImagen();
 	int getIdUser() const;
 	void mostrarInfoUser() const;
+	void suspenderUser();
 };
 
 #endif /* USUARIO_H_ */

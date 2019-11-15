@@ -31,7 +31,7 @@ public:
 	int getDia();
 	int getMes();
 	int getAnio();
-
+	friend ostream& operator << (ostream & salida, Fecha f);
 };
 
 

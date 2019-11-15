@@ -170,3 +170,7 @@ int Fecha::getAnio(){
 	return anio;
 }
 
+ostream& operator << (ostream & salida, Fecha f) {
+	salida << f.dia << "/" << f.mes << "/" << f.anio;
+	return salida;
+}

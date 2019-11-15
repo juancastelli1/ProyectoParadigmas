@@ -69,3 +69,21 @@ Pregunta* Respuesta::getPregunta() const{
 int Respuesta::getIdRespuesta() const {
 	return id_respuesta;
 }
+
+void Respuesta::darLike() {
+	this->likes++;
+}
+
+bool Respuesta::operator< (const Respuesta &otraRespuesta) const {
+	return this->likes < otraRespuesta.likes;
+}
+
+void Respuesta::mostrarInfoRespuesta() const{
+	cout << "Titulo Respuesta: " << this->titulo << endl;
+	cout << "Descripcion: " << this->descripcion << endl;
+	cout << "Url Imagen: " << this->url_imagen << endl;
+	cout << "Id Respuesta: " << this->id_respuesta << endl;
+	cout << "Fecha de respuesta: " << this->fecha << endl;
+	cout << "Likes: " << this->likes << endl;
+	cout << endl;
+}
