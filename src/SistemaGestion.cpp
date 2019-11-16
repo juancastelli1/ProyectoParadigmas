@@ -16,7 +16,15 @@ SistemaGestion::SistemaGestion() {
 }
 
 SistemaGestion::~SistemaGestion() {
-	// TODO Auto-generated destructor stub
+	for(Usuario* usuario : this->usuarios) {
+		delete usuario;
+	}
+	this->usuarios.clear();
+
+	for(Pregunta* pregunta : this->preguntas) {
+		delete pregunta;
+	}
+	this->preguntas.clear();
 }
 
 void SistemaGestion::agregarPregunta(string titulo, string descripcion, Usuario *user_preg, string url_imagen){

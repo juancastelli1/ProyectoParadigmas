@@ -54,13 +54,17 @@ int main() {
 
 	Fecha f1(20,6,2018);
 	userElegido = Sistema.buscarUser(3); // Selecciona a La Esposa Juan Perez
-	Sistema.agregarPregunta("Donde esta Juan?", "descripcion", userElegido, tagsDePregunta,f1); // Pregunta de Esposa de Juan Perez
 
-
+	vector<string> tagsDeOtraPregunta;
+	tagsDeOtraPregunta.push_back("Juan");
+	tagsDeOtraPregunta.push_back("Donde esta");
+	Sistema.agregarPregunta("Donde esta Juan?", "descripcion", userElegido, tagsDeOtraPregunta,f1); // Pregunta de Esposa de Juan Perez
 
 	Sistema.mostrarListaPreguntas();
 
 	cout<<"-- Pregunta con User Suspendido--"<<endl<<endl<<endl;
-	Sistema.mostrarListaPreguntas();
+
+	cout<<"-- Preguntas con tag Juan--"<<endl<<endl<<endl;
+	Sistema.mostrarListaPreguntas("Juan");
 	return 0;
 }

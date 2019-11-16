@@ -25,7 +25,15 @@ Usuario::Usuario(string nombre, string apellido, string pais_origen, string  ema
 }
 
 Usuario::~Usuario() {
-	// TODO Auto-generated destructor stub
+	for(Notificacion* notif : this->notificaciones) {
+		delete notif;
+	}
+	this->notificaciones.clear();
+
+	for(Respuesta* respuesta : this->respuestas) {
+		delete respuesta;
+	}
+	this->respuestas.clear();
 }
 void Usuario::verNotificacion(){
 	for(Notificacion* notif : this->notificaciones) {

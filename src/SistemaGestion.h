@@ -19,7 +19,7 @@ private:
 	vector<Pregunta*> preguntas;
 public:
 	SistemaGestion();
-	virtual ~SistemaGestion();
+	~SistemaGestion();
 	void agregarPregunta(string titulo, string descripcion, Usuario *user_preg, string url_imagen = "no img");
 	void agregarPregunta(string titulo, string descripcion, Usuario *user_preg, vector<string> tags, string url_imagen = "no img");
 	void agregarPregunta(string titulo, string descripcion, Usuario *user_preg, vector<string> tags, Fecha fec, string url_imagen = "no img");
